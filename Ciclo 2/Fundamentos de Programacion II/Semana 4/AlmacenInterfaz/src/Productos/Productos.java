@@ -67,6 +67,6 @@ public class Productos extends JFrame{
         });
         
         repaint();
-	//
+	//Esta mamada
     }
 }

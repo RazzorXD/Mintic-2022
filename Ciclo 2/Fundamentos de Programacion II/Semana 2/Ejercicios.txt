@@ -1,0 +1,122 @@
+EJERCICIO 1
+
+import java.util.Scanner;
+public class Ciclo {
+public static void main(String[] args){
+    Scanner ingresarDatos = new Scanner(System.in);
+    
+    long temp = 1;
+    long dato = ingresarDatos.nextInt();
+    
+    while(dato!=0){
+        temp = temp*dato;
+        dato--;
+    }
+    System.out.println(temp);
+}
+}
+
+------------------------------------
+
+EJERCICIO 2
+
+class E2{
+    public static int sumaPares(int [] vector){
+        int s = 0;
+        
+        for(int i = 0; i < vector.length; i++){
+            if(vector[i]%2 == 0 && vector[i] > 0){
+                s += vector[i];
+            }
+        }
+        
+        return s;
+    }
+}
+
+--------------------------------------------
+
+EJERCICIO 3
+
+class E3{
+    public static double mean(int [] vector){
+        float s = 0;
+        float promedio = 0;
+        
+        for(int i = 0; i < vector.length; i++){
+            s += vector[i];
+        }
+        promedio = s/vector.length;
+        
+        return promedio;
+    }
+}
+
+-----------------------------------
+
+EJERCICIO 4
+
+class E4{
+    public static int [] ordenamientoPersonalizado(int [] vector){
+        
+        int [] vectorOrdenado = new int [vector.length];
+        int aux = 0;
+        
+        for(int i = 0; i < vector.length/2; i++){
+            for(int j = i+1; j < vector.length/2; j++){
+                if(vector[i] > vector[j]){
+                    aux = vector[j];
+                    vector[j] = vector[i];
+                    vector[i] = aux;
+                }else{
+                    continue;
+                }
+            }
+            vectorOrdenado[i] = vector[i];
+        }
+        aux = 0;
+        for(int i = vector.length/2; i < vector.length; i++){
+            for(int j = i+1; j < vector.length; j++){
+                if(vector[i] < vector[j]){
+                    aux = vector[j];
+                    vector[j] = vector[i];
+                    vector[i] = aux;
+                }else{
+                    continue;
+                }
+            }
+            vectorOrdenado[i] = vector[i];
+        }
+        return vectorOrdenado;
+    }
+}
+
+-----------------------------------
+
+EJERCICIO 5
+
+class E5{
+    public static int [] sumaVectorial(int [] v1, int [] v2){
+        int [] s = new int [v1.length];
+        for (int i = 0;i < s.length;i++ ){
+            s[i] = v1[i] + v2[i];  
+        }
+        return s;
+    }
+}
+
+-----------------------------------
+
+EJERCICIOS 6
+
+class E6{
+    public static String join(char [] vector){
+        String vectorConcatenado = "";
+        for (int i = 0;i < vector.length;i++ ){
+            vectorConcatenado += vector[i];
+        } 
+        System.out.println(vectorConcatenado);
+        return vectorConcatenado;
+    }
+}
+

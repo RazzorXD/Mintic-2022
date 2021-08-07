@@ -1,0 +1,174 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package clientes;
+
+import java.util.Scanner;
+
+
+
+/**
+ *
+ * @author RamiroJose
+ */
+public class Clientes {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        // Declarar constructor para captura de datos
+        Scanner entrarDatos=new Scanner(System.in);
+       
+        
+        String nombreClientes="Ramiro Jose";
+        String direccionClientes="Cra 46A # 12 -45";
+        String ciudadClientes="Sabaneta";
+        String tipoCuenta="";
+                              
+        System.out.println("Nombre clientes = " + nombreClientes);
+        System.out.println("Direccion clientes = " + direccionClientes);
+        System.out.println("Ciudad clientes = " + ciudadClientes + " " + ",Departamento Antioquia");
+        System.out.println("Edad del clientes = ");
+        int edades=entrarDatos.nextInt();
+        if (edades<18){
+            System.out.println("Necesita un acudiente");
+          }
+        System.out.println("Edad del cliente = " + edades);
+        System.out.println("Estatura del clientes = ");
+        double estatura=entrarDatos.nextDouble();
+        System.out.println("Estatura del cliente = " + estatura);
+        System.out.println("Cuale es el tipo de cuenta[1.Ahorro] [2.Corriente]");
+        int i=entrarDatos.nextInt();
+        if (1==i){
+            tipoCuenta="Ahorro";
+        }else{
+            tipoCuenta="Corriente";      
+         }
+        System.out.println("Tipo de cuenta: "+tipoCuenta);
+}      
+    }
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package clientes;
+
+import java.util.Scanner;
+
+
+
+/**
+ *
+ * @author RamiroJose
+ */
+public class Clientes {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        // Declarar constructor para captura de datos
+        Scanner entrarDatos=new Scanner(System.in);
+       
+        
+        String nombreClientes="Ramiro Jose";
+        String direccionClientes="Cra 46A # 12 -45";
+        String ciudadClientes="Sabaneta";
+        String tipoCuenta="";
+                              
+        System.out.println("Nombre clientes = " + nombreClientes);
+        System.out.println("Direccion clientes = " + direccionClientes);
+        System.out.println("Ciudad clientes = " + ciudadClientes + " " + ",Departamento Antioquia");
+        System.out.println("Edad del clientes = ");
+        int edades=entrarDatos.nextInt();
+        if (edades<18){
+            System.out.println("Necesita un acudiente");
+          }
+        System.out.println("Edad del cliente = " + edades);
+        System.out.println("Estatura del clientes = ");
+        double estatura=entrarDatos.nextDouble();
+        System.out.println("Estatura del cliente = " + estatura);
+        System.out.println("Cuale es el tipo de cuenta[1.Ahorro] [2.Corriente]");
+        int i=entrarDatos.nextInt();
+        switch(i)
+             {
+            case 1:
+             tipoCuenta="Ahorro";
+             break;
+            case 2:
+             tipoCuenta="Corrientes";
+             break;
+            default: 
+             tipoCuenta="Quieres Un CDT";
+             break;
+           }
+        System.out.println("El producto financiero es: "+tipoCuenta);
+}      
+    }
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package clientes;
+
+import java.util.Scanner;
+
+
+
+/**
+ *
+ * @author RamiroJose
+ */
+public class Clientes {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        // Declarar constructor para captura de datos
+       Scanner entrarDatos=new Scanner(System.in);
+             
+        String[] nombreClientes=new String[2];
+        String[] apellidosClientes=new String[2];
+        boolean visualizar=true;
+        int j=0;
+        
+        for (int i=0;i<=1;i++){
+            System.out.println("Cual es el nombre "+"["+i+"]");
+            nombreClientes[i]=entrarDatos.nextLine();
+            System.out.println("Cual son los apellidos "+"["+i+"]");
+            apellidosClientes[i]=entrarDatos.nextLine();
+            } 
+         
+         while(visualizar) {
+           System.out.println("Nombres: "+nombreClientes[j] );
+           System.out.println("Apellido: "+apellidosClientes[j] );
+           
+            if (1==j){
+               visualizar=false;
+             }
+            j++;
+         }   
+     
+    }}
+

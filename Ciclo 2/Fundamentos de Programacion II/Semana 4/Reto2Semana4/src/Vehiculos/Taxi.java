@@ -11,13 +11,13 @@ package Vehiculos;
  */
 public class Taxi extends Vehiculo {
 
-    double distanciaRecorrida = 0;
-    boolean segurosActivados = false;
+    private double distanciaRecorrida = 0;
+    private boolean segurosActivados = false;
 
     //Constructor
     public Taxi(String nombreConductor) {
         super(nombreConductor);
-        nMaximoPasajeros = 1;
+        setnMaximoPasajeros(1);
     }
 
     //Metodos asociados
@@ -31,73 +31,73 @@ public class Taxi extends Vehiculo {
 
     public void presionarBotonPanico() {
         reiniciarTaximetro();
-        enMarcha = false;
+        setEnMarcha(false);
         segurosActivados = false;
         dejarPasajero();
-        cantidadDinero -= this.calcularPasaje();
+        setCantidadDinero(getCantidadDinero() - this.calcularPasaje());
     }
 
     public void dejarPasajero() {
-        if (nPasajeros > 0 && enMarcha == false) {
-            nPasajeros -= 1;
-            cantidadDinero += this.calcularPasaje();
+        if (getnPasajeros() > 0 && isEnMarcha() == false && segurosActivados == false) { //ultima comprobacion agregada
+            setnPasajeros(getnPasajeros() - 1);
+            setCantidadDinero(getCantidadDinero() + this.calcularPasaje());
             reiniciarTaximetro();
         }
     }
 
     public void recogerPasajero() {
-        if (enMarcha == false && segurosActivados == false && nPasajeros < nMaximoPasajeros) {
-            nPasajeros += 1;
+        if (isEnMarcha() == false && segurosActivados == false && getnPasajeros() < getnMaximoPasajeros()) {
+            setnPasajeros(getnPasajeros() + 1);
         }
     }
 
     @Override
     public void gestionarMarcha() {
-        if (enMarcha == false && segurosActivados == true) {
-            enMarcha = true;
+        if (isEnMarcha() == false && segurosActivados == true) {
+            setEnMarcha(true);
         } else {
-            enMarcha = false;
+            setEnMarcha(false);
         }
     }
 
     public void moverDerecha(double d) {
-        if (enMarcha == true && segurosActivados == true) {
-            if (nPasajeros > 0) {
+        if (isEnMarcha() == true && segurosActivados == true) {
+            if (getnPasajeros() > 0) {
                 distanciaRecorrida += d;
             }
-            localizacionX += d;
+            setLocalizacionX(getLocalizacionX() + d);
         }
     }
 
     public void moverIzquierda(double d) {
-        if (enMarcha == true && segurosActivados == true) {
-            if (nPasajeros > 0) {
+        if (isEnMarcha() == true && segurosActivados == true) {
+            if (getnPasajeros() > 0) {
                 distanciaRecorrida += d;
             }
-            localizacionX -= d;
+            setLocalizacionX(getLocalizacionX() - d);
         }
     }
 
     public void moverArriba(double d) {
-        if (enMarcha == true && segurosActivados == true) {
-            if (nPasajeros > 0) {
+        if (isEnMarcha() == true && segurosActivados == true) {
+            if (getnPasajeros() > 0) {
                 distanciaRecorrida += d;
             }
-            localizacionY += d;
+            setLocalizacionY(getLocalizacionY() + d);
         }
     }
 
     public void moverAbajo(double d) {
-        if (enMarcha == true && segurosActivados == true) {
-            if (nPasajeros > 0) {
+        if (isEnMarcha() == true && segurosActivados == true) {
+            if (getnPasajeros() > 0) {
                 distanciaRecorrida += d;
             }
-            localizacionY -= d;
+            setLocalizacionY(getLocalizacionY() - d);
         }
     }
 
     public void gestionarSeguros() {
-        if (enMarcha == false && segurosActivados == true) {
+        if (isEnMarcha() == false && segurosActivados == true) {
             segurosActivados = false;
         } else {
             segurosActivados = true;

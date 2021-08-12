@@ -14,7 +14,7 @@ import Vehiculos.*;
 public class Principal {
 
     public static void main(String[] args) {
-        Taxi b = new Taxi("pepe");
+        Taxi b = new Taxi("filomeno");
         b.gestionarMotor();
         b.recogerPasajero();
         b.gestionarSeguros();

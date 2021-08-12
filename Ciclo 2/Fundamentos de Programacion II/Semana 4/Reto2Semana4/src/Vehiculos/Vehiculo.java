@@ -11,16 +11,16 @@ package Vehiculos;
  */
 public abstract class Vehiculo {
 
-    String nombreConductor;
-    int nPasajeros = 0;
-    int nMaximoPasajeros;
-    double cantidadDinero = 0;
-    double localizacionX = 0;
-    double localizacionY = 0;
-    boolean aireAcondicionadoActivado = false;
-    boolean motorEncendido = false;
-    boolean wifiEncendido = false;
-    boolean enMarcha = false;
+    private String nombreConductor;
+    private int nPasajeros = 0;
+    private int nMaximoPasajeros;
+    private double cantidadDinero = 0;
+    private double localizacionX = 0;
+    private double localizacionY = 0;
+    private boolean aireAcondicionadoActivado = false;
+    private boolean motorEncendido = false;
+    private boolean wifiEncendido = false;
+    private boolean enMarcha = false;
 
     //Constructor
     public Vehiculo(String nombreConductor, int nMaximoPasajeros) {

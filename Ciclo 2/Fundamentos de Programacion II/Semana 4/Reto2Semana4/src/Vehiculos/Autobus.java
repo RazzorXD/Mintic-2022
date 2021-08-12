@@ -11,7 +11,7 @@ package Vehiculos;
  */
 public class Autobus extends Vehiculo {
 
-    boolean puertaAbierta = false;
+    private boolean puertaAbierta = false;
 
     //Constructor
     public Autobus(String nombreConductor, int nMaximoPasajeros) {
@@ -33,16 +33,16 @@ public class Autobus extends Vehiculo {
     }
 
     public void recogerPasajero(int estrato) {
-        if (enMarcha == false && puertaAbierta == true) {
-            if (nPasajeros < nMaximoPasajeros) {
-                nPasajeros += 1;
-                cantidadDinero += this.calcularPasaje(estrato);
+        if (isEnMarcha() == false && isPuertaAbierta() == true) {
+            if (getnPasajeros() < getnMaximoPasajeros()) {
+                setnPasajeros(getnPasajeros() + 1);
+                setCantidadDinero(getCantidadDinero() + this.calcularPasaje(estrato));
             }
         }
     }
 
     public void gestionarPuerta() {
-        if (puertaAbierta == false && enMarcha == false) {
+        if (puertaAbierta == false && isEnMarcha() == false) {
             puertaAbierta = true;
         } else {
             puertaAbierta = false;
@@ -51,10 +51,10 @@ public class Autobus extends Vehiculo {
 
     @Override
     public void gestionarMarcha() {
-        if (enMarcha == false && puertaAbierta == false) {
-            enMarcha = true;
+        if (isEnMarcha() == false && puertaAbierta == false) {
+            setEnMarcha(true);
         } else {
-            enMarcha = false;
+            setEnMarcha(false);
         }
     }
 

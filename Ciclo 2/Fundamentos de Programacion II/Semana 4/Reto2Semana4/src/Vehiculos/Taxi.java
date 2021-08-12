@@ -17,6 +17,7 @@ public class Taxi extends Vehiculo {
     //Constructor
     public Taxi(String nombreConductor) {
         super(nombreConductor);
+        nMaximoPasajeros = 1;
     }
 
     //Metodos asociados
@@ -29,6 +30,7 @@ public class Taxi extends Vehiculo {
     }
 
     public void presionarBotonPanico() {
+        reiniciarTaximetro();
         enMarcha = false;
         segurosActivados = false;
         dejarPasajero();
@@ -36,15 +38,16 @@ public class Taxi extends Vehiculo {
     }
 
     public void dejarPasajero() {
-        nPasajeros -= 1;
-        reiniciarTaximetro();
-        cantidadDinero += this.calcularPasaje();
+        if (nPasajeros > 0 && enMarcha == false) {
+            nPasajeros -= 1;
+            cantidadDinero += this.calcularPasaje();
+            reiniciarTaximetro();
+        }
     }
 
     public void recogerPasajero() {
-        nMaximoPasajeros = 1;
         if (enMarcha == false && segurosActivados == false && nPasajeros < nMaximoPasajeros) {
-                nPasajeros += 1;
+            nPasajeros += 1;
         }
     }
 
@@ -58,38 +61,38 @@ public class Taxi extends Vehiculo {
     }
 
     public void moverDerecha(double d) {
-        if (enMarcha == true) {
+        if (enMarcha == true && segurosActivados == true) {
+            if (nPasajeros > 0) {
+                distanciaRecorrida += d;
+            }
             localizacionX += d;
-        }
-        if (nPasajeros > 0) {
-            distanciaRecorrida += d;
         }
     }
 
     public void moverIzquierda(double d) {
-        if (enMarcha == true) {
+        if (enMarcha == true && segurosActivados == true) {
+            if (nPasajeros > 0) {
+                distanciaRecorrida += d;
+            }
             localizacionX -= d;
-        }
-        if (nPasajeros > 0) {
-            distanciaRecorrida += d;
         }
     }
 
     public void moverArriba(double d) {
-        if (enMarcha == true) {
+        if (enMarcha == true && segurosActivados == true) {
+            if (nPasajeros > 0) {
+                distanciaRecorrida += d;
+            }
             localizacionY += d;
-        }
-        if (nPasajeros > 0) {
-            distanciaRecorrida += d;
         }
     }
 
     public void moverAbajo(double d) {
-        if (enMarcha == true) {
+        if (enMarcha == true && segurosActivados == true) {
+            if (nPasajeros > 0) {
+                distanciaRecorrida += d;
+            }
             localizacionY -= d;
-        }
-        if (nPasajeros > 0) {
-            distanciaRecorrida += d;
         }
     }
 

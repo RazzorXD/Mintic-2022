@@ -3,99 +3,106 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vehiculos;
+package prueba;
 
 /**
  *
  * @author kevin
  */
-public abstract class Vehiculo {
+public abstract class vehiculo {
+    private  String nombreConductor;
+    private int nPasajeros=0;
+    private int nMaximoPasajeros;
+    private double cantidadDinero=0;
+    private double localizacionX= 0;
+    private double localizacionY=0;
+    private boolean aireAcondicionadoActivado=false;
+    private boolean motorEncendido=false;
+    private boolean wifiEncendido=false;
+    private boolean enMarcha=false;
+    
+    //CONSTRUCTOR
 
-    String nombreConductor;
-    int nPasajeros = 0;
-    int nMaximoPasajeros;
-    double cantidadDinero = 0;
-    double localizacionX = 0;
-    double localizacionY = 0;
-    boolean aireAcondicionadoActivado = false;
-    boolean motorEncendido = false;
-    boolean wifiEncendido = false;
-    boolean enMarcha = false;
-
-    //Constructor
-    public Vehiculo(String nombreConductor, int nMaximoPasajeros) {
+    public vehiculo(String nombreConductor) {
+        this.nombreConductor = nombreConductor;
+    }
+    
+    public vehiculo(String nombreConductor, int nMaximoPasajeros) {
         this.nombreConductor = nombreConductor;
         this.nMaximoPasajeros = nMaximoPasajeros;
     }
 
-    public Vehiculo(String nombreConductor) {
-        this.nombreConductor = nombreConductor;
+    
+    //Métodos  
+    
+    public double calcularDistanciaAcopio(){
+        
+        return Math.sqrt(Math.pow(this.localizacionX, 2) + Math.pow(this.localizacionY, 2));
     }
-
-    //Metodos asociados
-    public void dejarPasajero() {
-        if(getnPasajeros() > 0)
-            nPasajeros -= 1;
+    
+    public  void gestionarAireAcondicionado(){
+        if(this.motorEncendido){
+            this.aireAcondicionadoActivado =!this.aireAcondicionadoActivado ;
+        } 
+        
     }
-
-    public double calcularDistanciaAcopio() {
-        return Math.sqrt(Math.pow(localizacionX, 2) + Math.pow(localizacionY, 2));
+    public void gestionarMotor(){
+        this.motorEncendido = !this.motorEncendido;
+        if (!this.motorEncendido){
+            this.wifiEncendido = false;
+            this.aireAcondicionadoActivado =false;
+            this.enMarcha = false;
+        }
     }
-
-    public void gestionarAireAcondicionado() {
-        if (motorEncendido == true && aireAcondicionadoActivado == false) {
-            aireAcondicionadoActivado = true;
-        } else {
-            aireAcondicionadoActivado = false;
+    
+    
+    public void gestionarWifi(){
+        if(this.isMotorEncendido() && !this.isWifiEncendido()){
+            this.setWifiEncendido(true);
+        } 
+        else{
+            this.setWifiEncendido(false);
+            
         }
     }
 
-    public void gestionarMotor() {
-        if (motorEncendido == false) {
-            motorEncendido = true;
-        } else {
-            motorEncendido = false;
-            aireAcondicionadoActivado = false;
-            wifiEncendido = false;
-            enMarcha = false;
-        }
-    }
-
-    public void gestionarWifi() {
-        if (motorEncendido == true && wifiEncendido == false) {
-            wifiEncendido = true;
-        } else {
-            wifiEncendido = false;
-        }
-    }
-
+  
+    
     public abstract void gestionarMarcha();
-
-    public void moverDerecha(double d) {
-        if (enMarcha == true) {
-            localizacionX += d;
+    
+    public void dejarPasajero(){
+         if(this.getnPasajeros() >0){
+          //this.setnPasajeros(this.getnPasajeros()-1);
+          this.nPasajeros--;
+         } 
+      }
+    
+    public  void moverDerecha(double d){
+      if (this.motorEncendido && this.enMarcha){
+        this.localizacionX += d;
+        }
+        
+    }
+    public void moverIzquierda(double d){
+        if(this.motorEncendido && this.enMarcha){
+            this.localizacionX-=d;
+        }
+        
+    }
+    public  void moverArriba(double d){
+        if(this.motorEncendido && this.enMarcha){
+            this.localizacionY +=d;
+        
         }
     }
-
-    public void moverIzquierda(double d) {
-        if (enMarcha == true) {
-            localizacionX -= d;
+    public void moverAbajo(double d){
+        if(this.motorEncendido && this.enMarcha){
+            this.localizacionY -=d;
+        
         }
     }
-
-    public void moverArriba(double d) {
-        if (enMarcha == true) {
-            localizacionY += d;
-        }
-    }
-
-    public void moverAbajo(double d) {
-        if (enMarcha == true) {
-            localizacionY -= d;
-        }
-    }
-
-    //Getters y Setters
+//Setter and Getters
+    
     public String getNombreConductor() {
         return nombreConductor;
     }
@@ -175,4 +182,4 @@ public abstract class Vehiculo {
     public void setEnMarcha(boolean enMarcha) {
         this.enMarcha = enMarcha;
     }
-}//Fin programa
+}

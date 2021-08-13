@@ -1,0 +1,115 @@
+public class CuentaBanco {
+
+    //Inserte acá los atributos
+   private String numeroCuenta;
+   private String nombrePropietario;
+   private double saldo;
+
+    //Inserte acá el método constructor
+    public CuentaBanco(String numeroCuenta, String nombrePropietario, double saldo) {
+        this.numeroCuenta = numeroCuenta;
+        this.nombrePropietario = nombrePropietario;
+        this.saldo = saldo;
+    }
+
+    //Inserte acá los SETTERS Y GETTERS
+    public double getSaldo() {
+        return saldo;
+    }
+    public String getNumeroCuenta() {
+        return numeroCuenta;
+    }
+
+    public void setNumeroCuenta(String numeroCuenta) {
+        this.numeroCuenta = numeroCuenta;
+    }
+
+    public String getNombrePropietario() {
+        return nombrePropietario;
+    }
+
+    public void setNombrePropietario(String nombrePropietario) {
+        this.nombrePropietario = nombrePropietario;
+    }
+
+    
+     public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    //Inserte acá los métodos (NO LOS GETTER Y SETTERS)
+     public void depositar(double c){
+           setSaldo(getSaldo() + c);
+     }
+
+     public void retirar(double c){
+            double resta=c +0.05 *c;
+            if (resta <= this.saldo){
+              	setSaldo(getSaldo() - resta);
+            }
+
+    }
+    
+}
+
+
+/////////////////////////////////////////////////
+
+public class CuentaAhorro extends CuentaBanco {
+    double IEA=0;
+    //Inserte acá el método constructor
+    public CuentaAhorro(String numeroCuenta, String nombrePropietario, double saldo) {
+        super(numeroCuenta, nombrePropietario, saldo);
+    }
+
+    //Inserte acá los métodos (NO LOS GETTER Y SETTERS)
+    public double getIEA(){
+        
+        if(this.getSaldo()< 1000000){
+           IEA = 0.01;
+        }else
+            if(this.getSaldo()>=1000000 && this.getSaldo()< 2000000){
+                IEA= 0.023;
+            }else
+                if(this.getSaldo()>=2000000){
+                   IEA=0.0175;
+                }
+         return IEA;  
+    }
+
+     public double pagarInteres(int dias){
+           
+        double saldo = this.getSaldo()*(1+IEA/365);
+        return saldo;
+    }
+}
+
+////////////////////////////////////////////
+
+
+public class CuentaCorriente extends CuentaBanco {
+
+    //Inserte acá los atributos
+       private  double  CuotaManejo;
+
+    //Inserte acá el método constructor
+     public CuentaCorriente(String numeroCuenta, String nombrePropietario, double saldo, double CuotaManejo) {
+        super(numeroCuenta, nombrePropietario, saldo);
+        this.CuotaManejo = CuotaManejo;
+    }
+
+    //Inserte acá los SETTERS Y GETTERS
+    public double getCuotaManejo() {
+        return CuotaManejo;
+    }
+
+    public void setCuotaManejo(double CuotaManejo) {
+        this.CuotaManejo = CuotaManejo;
+    }
+    
+
+    //Inserte acá los métodos (NO LOS GETTER Y SETTERS)
+     public void cobrarCuotaManejo(){
+        this.setSaldo(CuotaManejo);
+    }
+}

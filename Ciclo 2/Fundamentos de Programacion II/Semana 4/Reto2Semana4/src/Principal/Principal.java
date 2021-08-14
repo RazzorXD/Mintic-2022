@@ -14,25 +14,22 @@ import Vehiculos.*;
 public class Principal {
 
     public static void main(String[] args) {
-        Taxi b = new Taxi("filomeno");
-        b.gestionarMotor();
-        b.recogerPasajero();
-        b.gestionarSeguros();
-        b.gestionarMarcha();
-        b.moverAbajo(5);
-        b.moverDerecha(6);
-        b.moverIzquierda(2);
-        b.gestionarSeguros();
-        b.gestionarMarcha();
-        b.dejarPasajero();
-        b.dejarPasajero();
-        b.gestionarSeguros();
-        b.dejarPasajero();
-        b.recogerPasajero();
-        b.gestionarSeguros();
-        b.moverArriba(1);
-        b.gestionarMarcha();
-        b.gestionarSeguros();
-        b.dejarPasajero();
+        Autobus camion1 = new Autobus("Anderson", 2);
+        camion1.gestionarPuerta();
+        camion1.recogerPasajero(1);
+        camion1.recogerPasajero(3);
+        camion1.recogerPasajero(6);
+        camion1.gestionarMarcha();
+        camion1.gestionarPuerta();
+        camion1.gestionarMarcha();
+        camion1.gestionarMotor();
+        camion1.gestionarMarcha();
+        camion1.moverArriba(1);
+        camion1.moverIzquierda(2);
+        camion1.moverAbajo(3);
+        camion1.recogerPasajero(6);
+        camion1.gestionarMarcha();
+        camion1.gestionarPuerta();
+        camion1.recogerPasajero(4);
     }
 }

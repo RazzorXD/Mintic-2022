@@ -14,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
 //*****Evaluació del taxi ****
         // el calificador enciende el motro, intenta poner en marcha el taxi, y recoge un pasajero
-        Autobus camion1 = new Autobus("Anderson",2);
+        /*Autobus camion1 = new Autobus("Anderson",2);
         camion1.gestionarPuerta(); 
         camion1.recogerPasajero(1);
         camion1.recogerPasajero(3);
@@ -30,7 +30,7 @@ public class Main {
         camion1.recogerPasajero(6);
         camion1.gestionarMarcha();
         camion1.gestionarPuerta();
-        camion1.recogerPasajero(4);
+        camion1.recogerPasajero(4);*/
         // camion1.recogerPasajero(6);
         // camion1.gestionarWifi();
         // camion1.gestionarAireAcondicionado();
@@ -38,5 +38,7 @@ public class Main {
         // camion1.dejarPasajero();
         // camion1.gestionarMotor();
         // camion1.calcularDistanciaAcopio();
+        int a;
+        System.out.println(a);
     }
 }

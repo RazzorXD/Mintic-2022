@@ -34,7 +34,6 @@ public class Condominio {
             if (ID.equals(String.valueOf(inmuebles.get(i).getnCasa()))) { //se corrigio de ID == String... a Id.equals(String...)
                 inmuebles.remove(i);
             }
-            
         }
     }
 

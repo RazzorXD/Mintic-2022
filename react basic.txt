@@ -1,0 +1,30 @@
+git profe Daniel > https://github.com/Mision-TIC-Ciclo-3
+sesiones profe Daniel > http://ingeniaudea.edu.co/zoom-recordings/recordings/docenciaingenia111@udea.edu.co/99562013521/2021-02-28
+
+Empezando con react > https://es.reactjs.org/docs/getting-started.html
+"			" > https://www.youtube.com/watch?v=nN0DrXR893M
+rutas react > https://reactrouter.com/web/guides/quick-start
+autenticacion react >https://auth0.com/es
+cuadros de dialogo > https://mui.com/components/dialogs/ 
+ > https://mui.com/es/api/tooltip/#main-content
+https://tailwindcss.com/docs/guides/create-react-app
+
+Mongo > https://docs.mongodb.com/manual/tutorial/query-documents/
+https://www.mongodb.com/try/download/database-tools?tck=docs_databasetools
+https://medium.com/@xagustin93/comandos-b%C3%A1sicos-de-mongodb-59978f2a81b7
+
+cluster name > fanta-stick-management
+
+string de conexion
+mongodb+srv://dbkevin:<password>@fanta-store.afzpo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+
+
+oauth
+dev-wzmehk54.us.auth0.com
+
+
+NEXTJS
+
+document > https://nextjs.org/docs/advanced-features/custom-document
+head > https://nextjs.org/docs/api-reference/next/head
+custom-app > https://nextjs.org/docs/advanced-features/custom-app
